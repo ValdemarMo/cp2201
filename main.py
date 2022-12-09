@@ -94,15 +94,15 @@ class VkUser:
 # ----------------------
 with open('token_vk.txt', 'r') as file_object:
     token_vk = file_object.read().strip()
-with open('token_y.txt', 'r') as file_object:
-    token_y = file_object.read().strip()
+#with open('token_y.txt', 'r') as file_object: 
+#    token_y = file_object.read().strip()
 # ----------------------
-target_user = '3711648'
-target_album = 'profile'  # варианты: profile , saved, wall
-count_photos = 7
+#target_user = '759185102'
+target_album = 'wall'  # варианты: profile , saved, wall
+count_photos = 5
 # ----------------------
-# token_y = input(f'\nвведите токен Яндекс.Диска: ')
-# target_user = input(f'\nвведите id пользователя vk: ')
+token_y = input(f'\nвведите токен Яндекс.Диска: ')
+target_user = input(f'\nвведите id пользователя vk: ')
 # target_album = input(f'\nвыберите фото-альбом (profile , saved, wall): ')
 # count_photos = int(input(f'\nвыберите количество фотографий: '))
 # ----------------------
@@ -134,6 +134,7 @@ print(f'\nформируем файл отчета', data_file_name)
 with open(data_file_name, "w") as info_x:
     info_x.write(json.dumps(info_list))
     info_x.close()
+
 print(f'\nдобавляем файл на Yandex Диск')
 yadisk.upload_file_to_disk(file_path, data_file_name)
 print(f'\nвсе файлы записаны')
